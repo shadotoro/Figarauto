@@ -1,0 +1,91 @@
+
+<body>
+    <?php require 'View/navbar.phtml'; ?>
+    <main>
+        <form action="?controller=annonce&action=create" method="post" enctype="multipart/form-data" class="form-create-annonce" id="create_form">
+            <fieldset>
+                <legend>Créer votre annonce</legend>
+
+                <div class="form-group">
+                    <label for="title">Titre : </label>
+                    <input type="text" name="title" required placeholder="Entrez un titre pour votre annonce">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description : </label>
+                    <textarea name="description" required placeholder="Soyez clair et concis !"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="price">Prix : </label>
+                    <input type="number" name="price" step="0.01" required placeholder="Un prix juste est une vente assurée">
+                </div>
+                <div class="form-group">
+                    <label for="fuel">Carburant : </label>
+                    <input type="text" name="fuel" required placeholder="Quel type de carburant ?">
+                </div>
+                <div class="form-group">
+                    <label for="color">Couleur: </label>
+                    <input type="text" name="color">
+                </div>
+                <div class="form-group">
+                    <label for="modele">Modèle : </label>
+                    <input type="text" name="modele">
+                </div>
+                <div class="form-group">
+                    <label for="marque">Marque : </label>
+                    <input type="text" name="marque">
+                </div>
+                <div class="form-group">
+                    <label for="annee_de_fabrication">Année de fabrication : </label>
+                    <input type="date" name="annee_de_fabrication">
+                </div>
+                <div class="form-group">
+                    <label for="mise_en_circulation">Mise en circulation : </label>
+                    <input type="date" name="mise_en_circulation">
+                </div>
+                <div class="form-group">
+                    <label for="finition">Finition : </label>
+                    <input type="text" name="finition">
+                </div>
+                <div class="form-group">
+                    <label for="version">Version : </label>
+                    <input type="text" name="version">
+                </div>
+                <div class="form-group">
+                    <label for="boite_de_vitesse">Boite de vitesse: </label>
+                    <input type="text" name="boite_de_vitesse">
+                </div>
+                <div class="form-group">
+                    <label for="portieres">Portières : </label>
+                    <input type="number" name="portieres">
+                </div>
+                <div class="form-group">
+                    <label for="DIN">DIN : </label>
+                    <input type="number" name="DIN">
+                </div>
+                <div class="form-group">
+                    <label for="permis">Permis : </label>
+                    <input type="text" name="permis">
+                </div>
+                <div class="form-group">
+                    <label for="kilometrage">Kilométrage : </label>
+                    <input type="number" name="kilometrage">
+                </div>
+                <div class="form-group">
+                    <label for="critair">Crit'Air : </label>
+                    <input type="number" name="critair">
+                </div>
+                <div class="form-group">
+                    <label for="images">Sélectionner vos images :</label>
+                    <input type="file" name="images[]" id="images" multiple>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Créer une annonce">
+                </div>
+            </fieldset>
+        </form>
+    </main>
+    <form>
+        <a href="index.php?controller=user&action=dashboard" class="button return_dashboard">Retour à votre tableau de bord.</a>
+    </form>
+    <?php require 'View/footer.phtml';?>
+</body>

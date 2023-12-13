@@ -1,0 +1,26 @@
+<?php  
+    if (!isset($_SESSION['csrf_token'])) {
+        $csrf_token = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token'] = $csrf_token;
+    }
+?>
+<?php require 'View/navbar.phtml'; ?>
+
+<body>
+    <main>
+        <form action="index.php?controller=auth&action=register" method="POST">
+            <input type="text" name="company_name" placeholder="Nom de l'entreprise" required>
+            <input type="text" name="street" placeholder="Adresse" required>
+            <input type="text" name="firstname" placeholder="Votre prénom" required>
+            <input type="text" name="lastname" placeholder="Votre nom" required>
+            <input type="text" name="siret_number" placeholder="Numéro de SIRET" required>
+            <input type="email" name="email" placeholder="Votre adresse mail"required>
+            <input type="password" name="password" placeholder="Votre mot de passe" required>
+            <input type="password" name="confirm_password" placeholder="Veuillez confirmer votre mot de passe" required>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            <input type="submit" value="Création de votre compte">
+        </form>
+    </main>
+</body>
+
+<?php require 'View/footer.phtml'; ?>

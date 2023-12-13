@@ -1,0 +1,50 @@
+<?php
+require 'config/Database.php';
+$db = new Database();
+$conn = $db->connect();
+
+if (isset($_GET['id'])) {
+    $adId =$_GET['id'];
+    $query = "SELECT * FROM advertisements WHERE id = :id";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id', $adId);
+    $stmt->execute();
+    $advertisement = $stmt->fetch(PDO::FETCH_ASSOC);
+} else {
+    echo "ID de l'annonce non fourni.";
+    exit();
+}
+?>
+<?php require 'View/navbar.phtml'; ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Détails de l'annonce</title>
+</head>
+<body>
+    <h1><?php echo htmlspecialchars($advertisement['title']); ?></h1>
+    <p><strong>Description :</strong> <?php echo htmlspecialchars($advertisement['description']); ?></p>
+    <p><strong>Prix :</strong> <?php echo htmlspecialchars($advertisement['price']); ?></p>
+    <p><strong>Carburant :</strong> <?php echo htmlspecialchars($advertisement['fuel']); ?></p>
+    <p><strong>Couleur :</strong> <?php echo htmlspecialchars($advertisement['color']); ?></p>
+    <p><strong>Modèle :</strong> <?php echo htmlspecialchars($advertisement['modele']); ?></p>
+    <p><strong>Marque :</strong> <?php echo htmlspecialchars($advertisement['marque']); ?></p>
+    <p><strong>Année de fabrication :</strong><?php echo htmlspecialchars($advertisement['annee_de_fabrication']); ?></p>
+    <p><strong>Mise en circulation :</strong> <?php echo htmlspecialchars($advertisement['mise_en_circulation']); ?></p>
+    <p><strong>Finition :</strong> <?php echo htmlspecialchars($advertisement['finition']); ?></p>
+    <p><strong>Version :</strong> <?php echo htmlspecialchars($advertisement['version']); ?></p>
+    <p><strong>Boite de vitesse :</strong> <?php echo htmlspecialchars($advertisement['boite_de_vitesse']); ?></p>
+    <p><strong>Portières :</strong> <?php echo htmlspecialchars($advertisement['portieres']); ?></p>
+    <p><strong>DIN :</strong> <?php echo htmlspecialchars($advertisement['DIN']); ?></p>
+    <p><strong>Permis :</strong> <?php echo htmlspecialchars($advertisement['permis']); ?></p>
+    <p><strong>Kilométrage :</strong> <?php echo htmlspecialchars($advertisement['kilometrage']); ?></p>
+    <p><strong>Crit'Air :</strong> <?php echo htmlspecialchars($advertisement['critair']); ?></p>
+
+<a href="dashboard.php">Retour à votre tableau de bord.</a>
+<a href="create_advertisement">Créer une nouvelle annonce.</a>
+</body>
+
+</html>
+
+<?php require 'View/footer.phtml'; ?>

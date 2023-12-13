@@ -1,0 +1,12 @@
+<?php
+$routes = [
+    'Home' => ['controller' => 'HomeController', 'action' =>'index'],
+    'Annonce/createAction' => ['controller' => 'AnnonceController', 'action' => 'createAction'],
+    'Annonce/details' => ['controller' => 'AnnonceController', 'action' => 'details'],
+    'Auth/login' => ['controller' => 'AuthController', 'action' => 'login'],
+    'Auth/logout' => ['controller' => 'AuthController', 'action' => 'logout'],
+    'Auth/register' => ['controller' => 'AuthController', 'action' =>'register'],
+    'User/dashboard' => ['controller' => 'UserController', 'action' => 'dashboard'],
+];
+return $routes;
+?>

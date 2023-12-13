@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <title>Accueil</title>
+</head>
+<body class="home-page">
+<?php require 'View/navbar.phtml'; ?>
+    <main>
+        <section class="main-banner custom-carousel">
+            <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img class="carousel-image" src="Assets/images/maserati-gran-turismo-1649119_1920.jpg" alt="Maserati gran turismo" width="1920" height="1186">
+                    </div>
+                    <div class="item">
+                        <img class="carousel-image" src="Assets/images/auto-2179220_1920.jpg" alt="Mercedes-benz " width="1920" height="1186">
+                    </div>
+                    <div class="item">
+                        <img class="carousel-image" src="Assets/images/2880-1800-crop-ferrari-testarossa-c308415042018120054_1.jpg" alt="ferrari testarossa" width="1920" height="1186">
+                    </div>
+                    <div class="item">
+                        <img class="carousel-image" src="Assets/images/bmw-m4-3169357_1920.jpg" alt="BMW M4" width="1920" height="1186">
+                    </div>
+                    <div class="item">
+                        <img class="carousel-image" src="Assets/images/porsche-4795517_1920.jpg" alt="Porsche GT3" width="1920" height="1186">
+                    </div>
+                    <div class ="item">
+                        <img class="carousel-image" src="Assets/images/car-1890494_1920.jpg" alt="Audi" width="1920" height="1186">
+                    </div>
+            </div>
+
+            <div class="video-and-ads-section">
+                <div class="video-section">
+                    <iframe width="100%" height="100%" src="Assets/images/pexels-tima-miroshnichenko-6873503 (2160p).mp4" frameborder="25" allowfullscreen></iframe>
+                </div>
+
+                <div class="latest-ads-section">
+                    <h2>Dernières Annonces</h2>
+                    <ul>
+                        <?php foreach ($latestAds as $ad): ?>
+                            <li>
+                                <h3><?php echo $ad['title']; ?></h3>
+                                <?php
+                                $phrases = explode('.', $ad['description']);
+                                $deuxPremièresPhrases = array_slice($phrases, 0, 2);
+                                $nouvelleDescription = implode('.', $deuxPremièresPhrases);
+                                ?>
+                                <p><?php echo $nouvelleDescription;?></p>
+                                <a href="view_advertisement.phtml?id=<?php echo $ad['id'];?>">Voir plus</a>
+                            </li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <?php require 'View/footer.phtml'; ?>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="Assets/JS/owl-carousel-init.js"></script>
+</body>
+</html>

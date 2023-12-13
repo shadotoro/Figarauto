@@ -1,0 +1,45 @@
+<?php require 'View/navbar.phtml';?>
+
+<!DOCTYPE html>
+<html lang=fr>
+    <head>
+        <meta charset=UTF-8>
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
+        <title>Tableau de bord</title>
+    </head>
+<main>
+<body>
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1>Bienvenue, <?php echo $user['company_name']; ?></h1>
+            <p>Ceci est votre tableau de bord.</p>
+        </div>
+            <h2>Vos annonces</h2>
+        <div class="dashboard-annonce">
+            <?php foreach($userAds as $ad): ?>
+                <li>
+                    <h2><?php echo htmlspecialchars($ad['title']); ?></h2>
+                    <p>Description :<?php echo htmlspecialchars($ad['description']); ?></p>
+                    <p>Prix :<?php echo htmlspecialchars($ad['price']); ?></p>
+                    <p>ID de l'annonce : <?php echo $ad['ad_id']; ?></p>
+                    <?php
+                        $images = $this->advertisementModel->getAdImagesInfo($ad['ad_id']);
+                        foreach($images as $image) {
+                            echo '<img src="/Assets/images/'. $image['file_name'] .'" alt="Photos de l\'annonce"/>';
+                        }
+                        ?>
+                    <a href="index.php?controller=annonce&action=detail&ad_id=<?php echo $ad['ad_id']; ?>">Voir les détails</a>
+                </li>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="dashboard-button">
+        <a href="index.php?controller=annonce&action=create" class="dashboard-link">Créer votre annonce</a>
+        <a href="index.php?controller=auth&action=logout" class="dashboard-link">Se déconnecter</a>
+    </div>
+</body>
+</main>
+</html>
+
+<?php require 'View/footer.phtml'; ?>
