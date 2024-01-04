@@ -109,7 +109,7 @@ class AnnonceController {
             exit;
         }
     }
-    public function detailsAction() { // méthode pour afficher les détails d'une annonce spécifique
+    public function detailAction() { // méthode pour afficher les détails d'une annonce spécifique
         if (isset($_GET['ad_id'])) { // vérifie si l'id de l'annonce est présent dans la requête GET
             $ad_id = $_GET['ad_id']; // récupère l'id de l'annonce
 

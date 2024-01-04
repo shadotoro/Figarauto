@@ -42,7 +42,7 @@ class Advertisement
     }    
 
     public function read($id) {
-        $stmt = $this->conn->prepare("SELECT * FROM advertisements WHERE id = :id");
+        $stmt = $this->conn->prepare("SELECT * FROM advertisements WHERE ad_id = :id");
         $stmt->bindValue(':id', $id);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -53,7 +53,7 @@ class Advertisement
     }
 
     public function delete($id) {
-        $stmt = $this->conn->prepare("DELETE FROM advertisements WHERE id = :id");
+        $stmt = $this->conn->prepare("DELETE FROM advertisements WHERE ad_id = :id");
         $stmt->bindValue(':id', $id);
         return $stmt->execute();
     }

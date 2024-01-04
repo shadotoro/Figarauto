@@ -1,7 +1,5 @@
 <?php
 require_once 'config/Database.php';
-require_once 'Model/Advertisement.php';
-require_once 'view_advertisement.php';
 
 if (isset($_GET['ad_id'])) {
     $ad_Id = $_GET['ad_id'];
@@ -42,7 +40,7 @@ if (isset($_GET['ad_id'])) {
                 <p><a href="index.php?controller=advertisement&action=edit&id=<?php echo $ad_id;?>">Editer l'annonce</a></p>
                 <p><a href="index.php?controller=advertisement&action=delete&id=<?php echo $ad_id;?>">Supprimer l'annonce</a></p>
 
-                <a href="dashboard.php">>Retour à votre tableau de bord.</a>
+                <a href="/View/dashboard.phtml">>Retour à votre tableau de bord.</a>
 
                 <p><a href="index.php?controller=auth&action=logout">Se déconnecter</a></p>
             </body>
