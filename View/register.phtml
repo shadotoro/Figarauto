@@ -9,15 +9,15 @@
 <body>
     <main>
         <form action="index.php?controller=auth&action=register" method="POST">
-            <input type="text" name="company_name" placeholder="Nom de l'entreprise" required>
-            <input type="text" name="street" placeholder="Adresse" required>
-            <input type="text" name="firstname" placeholder="Votre prénom" required>
-            <input type="text" name="lastname" placeholder="Votre nom" required>
-            <input type="text" name="siret_number" placeholder="Numéro de SIRET" required>
-            <input type="email" name="email" placeholder="Votre adresse mail"required>
-            <input type="password" name="password" placeholder="Votre mot de passe" required>
-            <input type="password" name="confirm_password" placeholder="Veuillez confirmer votre mot de passe" required>
-            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            <input type="text" name="company_name" id="company_name" placeholder="Nom de l'entreprise" required>
+            <input type="text" name="street" id="street" placeholder="Adresse" required>
+            <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" required>
+            <input type="text" name="lastname" id="lastname" placeholder="Votre nom" required>
+            <input type="text" name="siret_number" id="siret_number" placeholder="Numéro de SIRET" required>
+            <input type="email" name="email" id="email" placeholder="Votre adresse mail"required>
+            <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Veuillez confirmer votre mot de passe" required>
+            <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <input type="submit" value="Création de votre compte">
         </form>
     </main>

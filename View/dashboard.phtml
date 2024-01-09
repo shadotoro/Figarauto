@@ -8,17 +8,17 @@
         <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
         <title>Tableau de bord</title>
     </head>
-<main>
 <body>
-    <div class="dashboard">
-        <div class="dashboard-header">
+    <main>
+    <section class="dashboard">
+        <header class="dashboard-header">
             <h1>Bienvenue, <?php echo $user['company_name']; ?></h1>
             <p>Ceci est votre tableau de bord.</p>
-        </div>
+        </header>
             <h2>Vos annonces</h2>
-        <div class="dashboard-annonce">
+        <ul class="dashboard-annonce">
             <?php foreach($userAds as $ad): ?>
-                <li>
+                <li class="dashboard-annonce-item">
                     <h2><?php echo htmlspecialchars($ad['title']); ?></h2>
                     <p>Description :<?php echo htmlspecialchars($ad['description']); ?></p>
                     <p>Prix :<?php echo htmlspecialchars($ad['price']); ?></p>
@@ -32,14 +32,14 @@
                     <a href="index.php?controller=annonce&action=detail&ad_id=<?php echo $ad['ad_id']; ?>">Voir les détails</a>
                 </li>
             <?php endforeach; ?>
-        </div>
-    </div>
-    <div class="dashboard-button">
+        </ul>
+    </section>
+    <nav class="dashboard-button">
         <a href="index.php?controller=annonce&action=create" class="dashboard-link">Créer votre annonce</a>
         <a href="index.php?controller=auth&action=logout" class="dashboard-link">Se déconnecter</a>
-    </div>
+    </nav>
+    </main>
 </body>
-</main>
 </html>
 
 <?php require 'View/footer.phtml'; ?>

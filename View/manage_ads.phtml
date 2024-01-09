@@ -1,22 +1,34 @@
-<h2>Gestion des annonces</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th>user_id</th>
-            <th>title</th>
-            <th>price</th>
-            <th>modele</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($ads as $ad):?>
-            <tr>
-                <td><?php echo $ad['user_id'];?></td>
-                <td><?php echo $ad['title'];?></td>
-                <td><?php echo $ad['price'];?></td>
-                <td><?php echo $ad['modele'];?></td>
-            </tr>
-        <?php endforeach;?>
-    </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
+        <title>Gestion des annonces</title>
+    </head>
+<body>
+    <main>
+        <h2>Gestion des annonces</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>user_id</th>
+                    <th>title</th>
+                    <th>price</th>
+                    <th>modele</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($ads as $ad):?>
+                    <tr>
+                        <td><?php echo $ad['user_id'];?></td>
+                        <td><?php echo $ad['title'];?></td>
+                        <td><?php echo $ad['price'];?></td>
+                        <td><?php echo $ad['modele'];?></td>
+                    </tr>
+                <?php endforeach;?>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
