@@ -129,4 +129,29 @@ class AnnonceController {
             }
         }
     }
+
+    public function editAction() {
+        if (!isset($_SESSION['user_id'])) {
+            die("Vous devez être connecté pour accéder à cette page.");
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['ad_id'])) {
+            $ad_id = $_GET['ad_id'];
+            $annonce = new Advertisement($this->conn);
+            $annonceDetails = $annonce->read($ad_id);
+            if ($annonceDetails) {
+                require 'View/create_annonce.phtml';
+            } else {
+                throw new Exception('Annonce non trouvée');
+            }
+        } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $ad_id = filter_input(INPUT_POST, 'ad_id', FILTER_SANITIZE_NUMBER_INT);
+            $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+            $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
+            $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_INT);
+            $fuel = filter_input(INPUT_POST, 'fuel', FILTER_SANITIZE_STRING);
+            $color = filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING);
+            $modele = filter_input(INPUT_POST,'modele', FILTER_SANITIZE_STRING);
+            $marque = filter_input(INPUT_POST,'marque', FILTER_SANITIZE_STRING);
+        }
+    }
 }

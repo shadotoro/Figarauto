@@ -37,8 +37,8 @@ if (isset($_GET['ad_id'])) {
                 <p><strong>DIN :</strong> <?php echo htmlspecialchars($advertisement['DIN']);?></p>
                 <p><strong>Permis :</strong> <?php echo htmlspecialchars($advertisement['permis']);?></p>
                 <p><strong>Critair :</strong> <?php echo htmlspecialchars($advertisement['critair']);?></p>
-                <p><a href="index.php?controller=advertisement&action=edit&id=<?php echo $ad_id;?>">Editer l'annonce</a></p>
-                <p><a href="index.php?controller=advertisement&action=delete&id=<?php echo $ad_id;?>">Supprimer l'annonce</a></p>
+                <p><a href="index.php?controller=annonce&action=edit&ad_id=<?php echo $ad_id;?>">Editer l'annonce</a></p>
+                <p><a href="index.php?controller=annonce&action=delete&ad_id=<?php echo $ad_id;?>">Supprimer l'annonce</a></p>
 
                 <a href="/View/dashboard.phtml">>Retour à votre tableau de bord.</a>
 
