@@ -772,3 +772,14 @@ Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\vi
 [2024-01-11 00:15:30] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
 [2024-01-11 00:15:53] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
 [2024-01-11 00:16:09] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:39:00] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:39:06] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:39:08] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:39:11] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:52:00] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:52:14] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:52:18] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:57:56] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:57:59] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:58:22] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-01-11 09:59:05] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined

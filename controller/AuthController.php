@@ -1,17 +1,27 @@
 <?php
 require_once("Model/User.php"); // inclusion des fichiers nécessaires pour accéder au modl utilisateur et
 require_once("config/Database.php"); // aux paramètres de la bdd
-
-class AuthController { // définition de la classe
-    private $userModel; // propriété pour stocker une instance du modl utilisateur
-    public function __construct() { // constructeur qui initialise l'instance du mdl utilistr lors de la 
-        $this->userModel = new User(); // création de l'authcontrllr
+/**
+ * classe AuthController 
+ * gère l'authentification des utilisateurs
+ */
+class AuthController {
+    /**
+     * @var User une instance du modèle utilisateur.
+     */
+    private $userModel;
+    public function __construct() {
+        $this->userModel = new User(); // initialise l'instance du modèle utilisateur
     }
-
-    private function handleError($userFacingMessage, $logMessage = '') { // méthode privée pour gérer les erreurs en enregistrant dans 
-        // un fichier et en redirigeant l'utilisateur
+    /**
+     * gère les erreurs en les enregistrant et en redirigeant l'utilisateur.
+     * 
+     * @param string $userFacingMessage message à afficher à l'utilisateur
+     * @param string $logMessage message à enregistrer dans le fichier error log
+     */
+    private function handleError($userFacingMessage, $logMessage = '') {
         if ($logMessage) {
-            error_log($logMessage . "\n", 3, "logs\error.log"); // écris dans le fichier log d'erreur si un msg log est fourni
+            error_log($logMessage . "\n", 3, "logs\error.log"); // écrit dans le fichier log d'erreur si un msg log est fourni
         }
         $_SESSION['error_message'] = $userFacingMessage; // définit un message d'erreur pour l'affichage utilisateur
         header("Location:../index.php"); // redirige vers la page d'accueil 
