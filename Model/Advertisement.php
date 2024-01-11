@@ -49,7 +49,29 @@ class Advertisement
     }
 
     public function update($data) {
-        //pour plus tard
+        $sql = "UPDATE advertisements SET title = :title, description = :description, price = :price, color = :color, modele = :modele, marque = :marque, annee_de_fabrication = :annee_de_fabrication, mise_en_circulation = :mise_en_circulation, finition = :finition, version = :version, kilometrage = :kilometrage, boite_de_vitesse = :boite_de_vitesse, portieres = :portieres, DIN = :DIN, permis = :permis, critair = :critair WHERE ad_id = :ad_id";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindValue(':ad_id', $data['ad_id']);
+        $stmt->bindValue(':title', $data['title']);
+        $stmt->bindValue(':description', !empty($data['description']) ? $data['description'] : null);
+        $stmt->bindValue(':price', $data['price']);
+        $stmt->bindValue(':color', !empty($data['color']) ? $data['color'] : null);
+        $stmt->bindValue(':modele', !empty($data['modele']) ? $data['modele'] : null);
+        $stmt->bindValue('marque', !empty($data['marque']) ? $data['marque'] : null);
+        $stmt->bindValue('annee_de_fabrication', !empty($data['annee_de_fabrication']) ? $data['annee_de_fabrication'] : null);
+        $stmt->bindValue('mise_en_circulation', !empty($data['mise_en_circulation']) ? $data['mise_en_circulation'] : null);
+        $stmt->bindValue('finition', !empty($data['finition']) ? $data['finition'] : null);
+        $stmt->bindValue('version', !empty($data['version']) ? $data['version'] : null);
+        $stmt->bindValue('kilometrage', !empty($data['kilometrage']) ? $data['kilometrage'] : null);
+        $stmt->bindValue('boite_de_vitesse', !empty($data['boite_de_vitesse']) ? $data['boite_de_vitesse'] : null);
+        $stmt->bindValue('portieres', !empty($data['portieres']) ? $data['portieres'] : null);
+        $stmt->bindValue('DIN', !empty($data['DIN']) ? $data['DIN'] : null);
+        $stmt->bindValue('permis', !empty($data['permis']) ? $data['permis'] : null);
+        $stmt->bindValue('critair', !empty($data['critair']) ? $data['critair'] : null);
+
+        return $stmt->execute();
     }
 
     public function delete($id) {

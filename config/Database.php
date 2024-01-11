@@ -1,14 +1,35 @@
 <?php
-//définition de la classe Database
+/**
+ * classe Database pour la gestion de la connexion à une base de données.
+ */
 class Database {
-    //propriétés privées pour les détails de connexion à la bdd
-    private $host = 'localhost'; // hôte de la bdd
-    private $db_name = 'figarauto'; // nom de la bdd
-    private $username = 'root'; // nom d'utilisateur pour s'y connecter
-    private $password = ''; // mdp pour s'y connecter
-    public $conn; // variable publique pour la co'
-// méthode publique pour établir une co' à la bdd
-    public function connect() { // initialisation de la co' à null
+    /**
+     * @var string Hôte de la base de données.
+     */
+    private $host = 'localhost';
+    /**
+     * @var string Nom de la base de données.
+     */
+    private $db_name = 'figarauto';
+    /**
+     * @var string Nom d'utilisateur pour la connexion à la base de données.
+     */
+    private $username = 'root';
+    /**
+     * @var string Mot de passe pour la connexion à la base de données.
+     */
+    private $password = '';
+    /**
+     * @var PDO|null Instance de connexion à la base de données.
+     */
+    public $conn;
+    /**
+     * établit une connexion à la base de données et la retourne.
+     * 
+     * @return PDO|null retourne l'objet PDO en cas de succès ou null en cas d'échec.
+     */
+
+    public function connect() {
         try {
             $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8"; //construction du DSN (data source name)
             $this->conn = new PDO($dsn, $this->username, $this->password); //création d'une nouvelle instance PDO

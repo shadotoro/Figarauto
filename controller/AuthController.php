@@ -38,7 +38,6 @@ class AuthController { // définition de la classe
             if ($_POST["password"] !== $_POST["confirm_password"]) {
                 exit("Les mots de passe ne correspondent pas !");
             }
-// var_dump($data);
             // tente d'enregistrer l'utilisateur avec les données validées
             if ($this->userModel->register($data)) {
                 $lastUserId = $this->userModel->getLastInsertedId(); // récupère l'id de l'utilisateur inséré
@@ -62,14 +61,14 @@ class AuthController { // définition de la classe
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") { // vérif rqut type POST
-            $email = $_POST["email"]; // lollecte les données de co'
+            $email = $_POST["email"]; // collecte les données de co'
             $password = $_POST["password"];
-var_dump($_POST, $_SESSION);
+
             if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) { // vérif token
-                echo("Token invalide!");
+                echo json_encode(['success' => false, 'message' => 'Token invalide!']);
                 return;
             }
-echo "Email: $email, Password: $password";
+
             $user = $this->userModel->login($email, $password); // tente de co' avec les identifiants fournis
 
             if ($user) { // si co' réussie, enregistre l'id de l'utilisateur dans la session
@@ -82,11 +81,11 @@ echo "Email: $email, Password: $password";
                     // ajoute la session utilisateur dans la bdd
                 if ($this->userModel->addSession($user["user_id"], $session_id, $session_start, $session_end, $session_IP)) {
                     $_SESSION["session_id"] = $session_id;
-                } // redirige vers le dashboard de l'utilisateur
-                header("location: index.php?controller=user&action=dashboard");
+                }
+                echo json_encode(['success' => true]);
                 exit();
             } else { // affiche une erreur si les identifiants sont incorrects
-                echo "Identifiants incorrects !";
+                echo json_encode(['success' => false, 'message' => 'Identifiants incorrects!']);
             } // régénère le token 
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         } // prépare les données pour la vue de connexion

@@ -38,7 +38,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 $controllerName = ucfirst($controller) . "Controller";
 $actionName = $action . "Action";
 
-echo "controller: $controllerName <br>";
+//echo "controller: $controllerName <br>";
 echo "action: $actionName <br>";
 
 // chemin vers le fichier du contrôleur

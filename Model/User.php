@@ -72,9 +72,6 @@ $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-echo "Query: $query, Email: $email";
-print_r($user);
-
         if ($user && password_verify($password, $user['hashed_password'])) { // vérif du mdp et retour de l'utilisateur si valide
             return $user;
         } else {

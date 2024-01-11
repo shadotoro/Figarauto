@@ -10,7 +10,7 @@
 <body>
     <main>
         <h2>Connexion</h2>
-            <form action="index.php?controller=auth&action=login" method="post">
+            <form id="loginForm" method="post">
                 <label for="email">Votre adresse email :</label>
                 <input type="email" name="email" id="email" required>
                 <label for="password">Votre mot de passe :</label>
@@ -20,6 +20,7 @@
             </form>
         <a href="index.php?controller=auth&action=register">Pas encore de compte? Créer un compte</a>
     </main>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>
 <?php require 'View/footer.phtml'; ?>

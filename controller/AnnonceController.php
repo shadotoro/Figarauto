@@ -9,7 +9,6 @@ class AnnonceController {
         }
         $this->db = new Database(); // crée une nouvelle instance de la bdd et se co'
         $this->conn = $this->db->connect();
-        require_once 'View/create_annonce.phtml';
     }
 
     public function createAction() { // méthode pour créer une nouvelle annonce
@@ -108,18 +107,25 @@ class AnnonceController {
             echo json_encode($response);
             exit;
         }
+        require_once 'view/create_annonce.phtml';
     }
     public function detailAction() { // méthode pour afficher les détails d'une annonce spécifique
-        if (isset($_GET['ad_id'])) { // vérifie si l'id de l'annonce est présent dans la requête GET
+        if (isset($_GET['ad_id']) || $_GET['ad_id'] === '') { 
+            throw new Exception('ID de l\'annonce non spécifié.');
+        } // vérifie si l'id de l'annonce est présent dans la requête GET
+
             $ad_id = $_GET['ad_id']; // récupère l'id de l'annonce
+            $annonce = new Advertisement($this->conn); // crée une nouvelle instance de advertisement avec la co' à la bdd
+            $annonceDetails = $annonce->read($ad_id);
+
+var_dump($ad_id); // affiche l'id de l'annonce
+var_dump($annonceDetails); // affiche les détails de l'annonce
 
             if ($this->conn === null) {
                 $this->db = new Database();
                 $this->conn = $this->db->connect();
             }
 
-            $annonce = new Advertisement($this->conn); // crée une new instance et récupère les détails de l'annonce
-            $annonceDetails = $annonce->read($ad_id);
 
             if ($annonceDetails) { // vérif si les détails sont dispos et charge la vue des détails
                 $adImages = $annonce->getAdImagesInfo($ad_id);
@@ -127,23 +133,24 @@ class AnnonceController {
             } else {
                 throw new Exception('Annonce non trouvée'); // lance une exception si l'annonce n'est pas trouvée
             }
-        }
     }
 
     public function editAction() {
         if (!isset($_SESSION['user_id'])) {
             die("Vous devez être connecté pour accéder à cette page.");
         }
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['ad_id'])) {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['ad_id'])) { // traitement des requêtes GET pour afficher le formulaire d'édition
             $ad_id = $_GET['ad_id'];
             $annonce = new Advertisement($this->conn);
             $annonceDetails = $annonce->read($ad_id);
+
             if ($annonceDetails) {
                 require 'View/create_annonce.phtml';
             } else {
                 throw new Exception('Annonce non trouvée');
             }
-        } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') { // traitement des requêtes POST pour mettre à jour l'annonce
             $ad_id = filter_input(INPUT_POST, 'ad_id', FILTER_SANITIZE_NUMBER_INT);
             $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
             $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
@@ -152,6 +159,47 @@ class AnnonceController {
             $color = filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING);
             $modele = filter_input(INPUT_POST,'modele', FILTER_SANITIZE_STRING);
             $marque = filter_input(INPUT_POST,'marque', FILTER_SANITIZE_STRING);
+            $annee_de_fabrication = filter_input(INPUT_POST, 'annee_de_fabrication', FILTER_SANITIZE_STRING);
+            $mise_en_circulation = filter_input(INPUT_POST,'mise_en_circulation', FILTER_SANITIZE_STRING);
+            $finition = filter_input(INPUT_POST, 'finition', FILTER_SANITIZE_STRING);
+            $version = filter_input(INPUT_POST,'version', FILTER_SANITIZE_STRING);
+            $kilometrage = filter_input(INPUT_POST, 'kilometrage', FILTER_SANITIZE_STRING);
+            $boite_de_vitesse = filter_input(INPUT_POST, 'boite_de_vitesse', FILTER_SANITIZE_STRING);
+            $portieres = filter_input(INPUT_POST, 'portieres', FILTER_SANITIZE_STRING);
+            $DIN = filter_input(INPUT_POST, 'DIN', FILTER_SANITIZE_STRING);
+            $permis = filter_input(INPUT_POST, 'permis', FILTER_SANITIZE_STRING);
+            $critair = filter_input(INPUT_POST, 'critair', FILTER_SANITIZE_STRING);
+
+            $annonce = new Advertisement($this->conn); // mise à jour de l'annonce dans la bdd
+            $updateData = [
+                'ad_id' => $ad_id,
+                'title' => $title,
+                'description' => $description,
+                'price' => $price,
+                'fuel' => $fuel,
+                'color' => $color,
+                'modele' => $modele,
+                'marque' => $marque,
+                'annee_de_fabrication' => $annee_de_fabrication,
+                'mise_en_circulation' => $mise_en_circulation,
+                'finition' => $finition,
+                'version' => $version,
+                'kilometrage' => $kilometrage,
+                'boite_de_vitesse' => $boite_de_vitesse,
+                'portieres' => $portieres,
+                'DIN' => $DIN,
+                'permis' => $permis,
+                'critair' => $critair,
+            ];
+
+            $updated = $annonce->update($updateData);
+
+            if ($updated) {
+                header('Location: index.php?controller=annonce&action=detail&ad_id=' . $ad_id);
+                exit();
+            } else {
+                $response = ['success' => false,'message' => 'Une erreur est survenue lors de la modification de l\'annonce'];
+            }
         }
     }
 }

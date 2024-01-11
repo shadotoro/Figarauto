@@ -1,85 +1,84 @@
-
 <body>
     <?php require 'View/navbar.phtml'; ?>
     <main>
-        <form action="?controller=annonce&action=create" method="post" enctype="multipart/form-data" class="form-create-annonce" id="create_form">
+        <form action="?controller=annonce&action=<?php echo isset($annonceDetails) ? 'edit&ad_id=' . htmlspecialchars($annonceDetails['ad_id']) : 'create'; ?>" method="post" enctype="multipart/form-data" class="form-create-annonce" id="create_form">
             <fieldset>
-                <legend>Créer votre annonce</legend>
+                <legend><?php echo isset($annonceDetails) ? 'Modifier' : 'Créer'; ?> votre annonce</legend>
 
                 <div class="form-group">
                     <label for="title">Titre : </label>
-                    <input type="text" name="title" required placeholder="Entrez un titre pour votre annonce">
+                    <input type="text" name="title" required placeholder="Entrez un titre pour votre annonce" value="<?php echo isset($annonceDetails['title']) ? htmlspecialchars($annonceDetails['title']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="description">Description : </label>
-                    <textarea name="description" required placeholder="Soyez clair et concis !"></textarea>
+                    <textarea name="description" required placeholder="Soyez clair et concis !"><?php echo isset($annonceDetails['description']) ? htmlspecialchars($annonceDetails['description']) : ''; ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="price">Prix : </label>
-                    <input type="number" name="price" step="0.01" required placeholder="Un prix juste est une vente assurée">
+                    <input type="number" name="price" step="0.01" required placeholder="Un prix juste est une vente assurée" value="<?php echo isset($annonceDetails['price']) ? htmlspecialchars($annonceDetails['price']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="fuel">Carburant : </label>
-                    <input type="text" name="fuel" required placeholder="Quel type de carburant ?">
+                    <input type="text" name="fuel" required placeholder="Quel type de carburant ?" value="<?php echo isset($annonceDetails['fuel']) ? htmlspecialchars($annonceDetails['fuel']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="color">Couleur: </label>
-                    <input type="text" name="color">
+                    <input type="text" name="color" value="<?php echo isset($annonceDetails['color']) ? htmlspecialchars($annonceDetails['color']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="modele">Modèle : </label>
-                    <input type="text" name="modele">
+                    <input type="text" name="modele" value="<?php echo isset($annonceDetails['modele']) ? htmlspecialchars($annonceDetails['modele']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="marque">Marque : </label>
-                    <input type="text" name="marque">
+                    <input type="text" name="marque" value="<?php echo isset($annonceDetails['marque']) ? htmlspecialchars($annonceDetails['marque']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="annee_de_fabrication">Année de fabrication : </label>
-                    <input type="date" name="annee_de_fabrication">
+                    <input type="date" name="annee_de_fabrication" value="<?php echo isset($annonceDetails['annee_de_fabrication']) ? htmlspecialchars($annonceDetails['annee_de_fabrication']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="mise_en_circulation">Mise en circulation : </label>
-                    <input type="date" name="mise_en_circulation">
+                    <input type="date" name="mise_en_circulation" value="<?php echo isset($annonceDetails['mise_en_circulation']) ? htmlspecialchars($annonceDetails['mise_en_circulation']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="finition">Finition : </label>
-                    <input type="text" name="finition">
+                    <input type="text" name="finition" value="<?php echo isset($annonceDetails['finition']) ? htmlspecialchars($annonceDetails['finition']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="version">Version : </label>
-                    <input type="text" name="version">
+                    <input type="text" name="version" value="<?php echo isset($annonceDetails['version']) ? htmlspecialchars($annonceDetails['version']) : ''; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="boite_de_vitesse">Boite de vitesse: </label>
-                    <input type="text" name="boite_de_vitesse">
+                    <label for="boite_de_vitesse">Boite de vitesse : </label>
+                    <input type="text" name="boite_de_vitesse" value="<?php echo isset($annonceDetails['boite_de_vitesse']) ? htmlspecialchars($annonceDetails['boite_de_vitesse']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="portieres">Portières : </label>
-                    <input type="number" name="portieres">
+                    <input type="number" name="portieres" value="<?php echo isset($annonceDetails['portieres']) ? htmlspecialchars($annonceDetails['portieres']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="DIN">DIN : </label>
-                    <input type="number" name="DIN">
+                    <input type="number" name="DIN" value="<?php echo isset($annonceDetails['DIN']) ? htmlspecialchars($annonceDetails['DIN']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="permis">Permis : </label>
-                    <input type="text" name="permis">
+                    <input type="text" name="permis" value="<?php echo isset($annonceDetails['permis']) ? htmlspecialchars($annonceDetails['permis']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="kilometrage">Kilométrage : </label>
-                    <input type="number" name="kilometrage">
+                    <input type="number" name="kilometrage" value="<?php echo isset($annonceDetails['kilometrage']) ? htmlspecialchars($annonceDetails['kilometrage']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="critair">Crit'Air : </label>
-                    <input type="number" name="critair">
+                    <input type="number" name="critair" value="<?php echo isset($annonceDetails['critair']) ? htmlspecialchars($annonceDetails['critair']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="images">Sélectionner vos images :</label>
                     <input type="file" name="images[]" id="images" multiple>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Créer une annonce">
+                    <input type="submit" value="<?php echo isset($annonceDetails) ? 'Modifier' : 'Créer'; ?> une annonce">
                 </div>
             </fieldset>
         </form>
