@@ -2,6 +2,7 @@
 
 $routes = [
     'Home' => ['controller' => 'HomeController', 'action' =>'index'],
+    'Home/home' => ['controller' => 'HomeController', 'action' => 'homeAction'],
     'Annonce/createAction' => ['controller' => 'AnnonceController', 'action' => 'createAction'],
     'Annonce/details' => ['controller' => 'AnnonceController', 'action' => 'detailAction'],
     'Auth/login' => ['controller' => 'AuthController', 'action' => 'login'],

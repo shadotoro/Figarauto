@@ -40,7 +40,7 @@ if (isset($_GET['ad_id'])) {
                 <p><a href="index.php?controller=annonce&action=edit&ad_id=<?php echo $ad_id;?>">Editer l'annonce</a></p>
                 <p><a href="index.php?controller=annonce&action=delete&ad_id=<?php echo $ad_id;?>">Supprimer l'annonce</a></p>
 
-                <a href="/View/dashboard.phtml">>Retour à votre tableau de bord.</a>
+                <a href="index.php?controller=user&action=dashboard">Retour à votre tableau de bord.</a>
 
                 <p><a href="index.php?controller=auth&action=logout">Se déconnecter</a></p>
             </body>

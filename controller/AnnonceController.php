@@ -110,7 +110,7 @@ class AnnonceController {
         require_once 'view/create_annonce.phtml';
     }
     public function detailAction() { // méthode pour afficher les détails d'une annonce spécifique
-        if (isset($_GET['ad_id']) || $_GET['ad_id'] === '') { 
+        if (!isset($_GET['ad_id']) || $_GET['ad_id'] === '') { 
             throw new Exception('ID de l\'annonce non spécifié.');
         } // vérifie si l'id de l'annonce est présent dans la requête GET
 
@@ -141,6 +141,7 @@ var_dump($annonceDetails); // affiche les détails de l'annonce
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['ad_id'])) { // traitement des requêtes GET pour afficher le formulaire d'édition
+var_dump($_GET['ad_id']);
             $ad_id = $_GET['ad_id'];
             $annonce = new Advertisement($this->conn);
             $annonceDetails = $annonce->read($ad_id);
@@ -195,11 +196,29 @@ var_dump($annonceDetails); // affiche les détails de l'annonce
             $updated = $annonce->update($updateData);
 
             if ($updated) {
-                header('Location: index.php?controller=annonce&action=detail&ad_id=' . $ad_id);
+                header('Location: index.php?controller=Annonce&route=details&ad_id=' . $ad_id);
                 exit();
             } else {
                 $response = ['success' => false,'message' => 'Une erreur est survenue lors de la modification de l\'annonce'];
             }
+        }
+    }
+
+    public function deleteAction() {
+        if (!isset($_SESSION['user_id'])) {
+            die("Vous devez être connecté pour accéder à cette page.");
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['ad_id'])) {
+            $ad_id = $_GET['ad_id'];
+            $annonce = new Advertisement($this->conn);
+
+            if($annonce->delete($ad_id)) {
+                header('Location: index.php?controller=user&action=dashboard');
+                exit();
+            } throw new Exception('Erreur lors de la suppression de l\'annonce !');
+        } else {
+            throw new Exception('ID de l\'annonce non spécifié !');
         }
     }
 }
