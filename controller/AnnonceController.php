@@ -118,8 +118,8 @@ class AnnonceController {
             $annonce = new Advertisement($this->conn); // crée une nouvelle instance de advertisement avec la co' à la bdd
             $annonceDetails = $annonce->read($ad_id);
 
-var_dump($ad_id); // affiche l'id de l'annonce
-var_dump($annonceDetails); // affiche les détails de l'annonce
+//var_dump($ad_id); // affiche l'id de l'annonce
+//var_dump($annonceDetails); // affiche les détails de l'annonce
 
             if ($this->conn === null) {
                 $this->db = new Database();
@@ -141,7 +141,7 @@ var_dump($annonceDetails); // affiche les détails de l'annonce
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['ad_id'])) { // traitement des requêtes GET pour afficher le formulaire d'édition
-var_dump($_GET['ad_id']);
+//var_dump($_GET['ad_id']);
             $ad_id = $_GET['ad_id'];
             $annonce = new Advertisement($this->conn);
             $annonceDetails = $annonce->read($ad_id);

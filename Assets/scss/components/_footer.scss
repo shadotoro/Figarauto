@@ -1,0 +1,19 @@
+.footer {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1rem;
+    text-align: center;
+
+    &__links {
+        a { 
+            color: var(--secondary-color);
+            &:hover {
+                color: var(--highlight-color);
+            }
+        }
+    }
+
+    @include media-query('min-width', '768px') {
+        padding: 1.5rem 0;
+    }
+}

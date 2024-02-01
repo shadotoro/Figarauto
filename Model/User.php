@@ -62,7 +62,7 @@ class User { // la classe user gère toutes les opérations liées à l'utilisat
     }
 
     public function login($email, $password) { // méthode pour connecter un utilisateur
-$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // requête pour le sélectionner en fonction de l'email
         $query = "SELECT * FROM " . $this->table . " WHERE email = :email LIMIT 1";

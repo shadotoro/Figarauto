@@ -4,23 +4,58 @@
         $_SESSION['csrf_token'] = $csrf_token;
     }
 ?>
-<?php require 'View/navbar.phtml'; ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Inscription</title>
+</head>
 
 <body>
-    <main>
-        <form action="index.php?controller=auth&action=register" method="POST">
-            <input type="text" name="company_name" id="company_name" placeholder="Nom de l'entreprise" required>
-            <input type="text" name="street" id="street" placeholder="Adresse" required>
-            <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" required>
-            <input type="text" name="lastname" id="lastname" placeholder="Votre nom" required>
-            <input type="text" name="siret_number" id="siret_number" placeholder="Numéro de SIRET" required>
-            <input type="email" name="email" id="email" placeholder="Votre adresse mail"required>
-            <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="Veuillez confirmer votre mot de passe" required>
-            <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-            <input type="submit" value="Création de votre compte">
-        </form>
+<?php require 'View/navbar.phtml'; ?>
+
+    <main class="container">
+        <section class="row">
+            <div class="col col-12">
+                <h2>Inscription</h2>
+            </div>
+            <div class="col col-12">
+                <form action="index.php?controller=auth&action=register" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="company_name" id="company_name" placeholder="Nom de l'entreprise" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="street" id="street" placeholder="Adresse" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="lastname" id="lastname" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="siret_number" id="siret_number" placeholder="Numéro de SIRET" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" placeholder="Votre adresse mail"required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="confirm_password" id="confirm_password" placeholder="Veuillez confirmer votre mot de passe" required>
+                    </div>
+                    <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                    <div class="form-group">
+                        <input type="submit" value="Création de votre compte">
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
+    <?php require 'View/footer.phtml'; ?>
 </body>
 
-<?php require 'View/footer.phtml'; ?>
+</html>

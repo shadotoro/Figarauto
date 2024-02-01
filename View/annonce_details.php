@@ -20,29 +20,37 @@ if (isset($_GET['ad_id'])) {
                 <title>Détails de l'annonce</title>
             </head>
             <body>
-                <h1><?php echo htmlspecialchars($advertisement['title']); ?></h1>
-                <p><strong>Description :</strong> <?php echo htmlspecialchars($advertisement['description']); ?></p>
-                <p><strong>Prix :</strong> <?php echo htmlspecialchars($advertisement['price']);?></p>
-                <p><strong>Marque :</strong> <?php echo htmlspecialchars($advertisement['marque']);?></p>
-                <p><strong>Modele :</strong> <?php echo htmlspecialchars($advertisement['modele']);?></p>
-                <p><strong>Carburant :</strong> <?php echo htmlspecialchars($advertisement['fuel']);?></p>
-                <p><strong>Couleur :</strong> <?php echo htmlspecialchars($advertisement['color']);?></p>
-                <p><strong>Année de fabrication :</strong> <?php echo htmlspecialchars($advertisement['annee_de_fabrication']);?></p>
-                <p><strong>Mise en circulation :</strong> <?php echo htmlspecialchars($advertisement['mise_en_circulation']);?></p>
-                <p><strong>Kilometrage :</strong> <?php echo htmlspecialchars($advertisement['kilometrage']);?></p>
-                <p><strong>Finition :</strong> <?php echo htmlspecialchars($advertisement['finition']);?></p>
-                <p><strong>Version :</strong> <?php echo htmlspecialchars($advertisement['version']);?></p>
-                <p><strong>Boite de vitesse :</strong> <?php echo htmlspecialchars($advertisement['boite_de_vitesse']);?></p>
-                <p><strong>Portieres :</strong> <?php echo htmlspecialchars($advertisement['portieres']);?></p>
-                <p><strong>DIN :</strong> <?php echo htmlspecialchars($advertisement['DIN']);?></p>
-                <p><strong>Permis :</strong> <?php echo htmlspecialchars($advertisement['permis']);?></p>
-                <p><strong>Critair :</strong> <?php echo htmlspecialchars($advertisement['critair']);?></p>
-                <p><a href="index.php?controller=annonce&action=edit&ad_id=<?php echo $ad_id;?>">Editer l'annonce</a></p>
-                <p><a href="index.php?controller=annonce&action=delete&ad_id=<?php echo $ad_id;?>">Supprimer l'annonce</a></p>
-
-                <a href="index.php?controller=user&action=dashboard">Retour à votre tableau de bord.</a>
-
-                <p><a href="index.php?controller=auth&action=logout">Se déconnecter</a></p>
+                <main class="container">
+                    <article class="row">
+                        <section class="col">
+                            <h1><?php echo htmlspecialchars($advertisement['title']); ?></h1>
+                            <p><strong>Description :</strong> <?php echo htmlspecialchars($advertisement['description']); ?></p>
+                            <p><strong>Prix :</strong> <?php echo htmlspecialchars($advertisement['price']);?></p>
+                            <p><strong>Marque :</strong> <?php echo htmlspecialchars($advertisement['marque']);?></p>
+                            <p><strong>Modele :</strong> <?php echo htmlspecialchars($advertisement['modele']);?></p>
+                            <p><strong>Carburant :</strong> <?php echo htmlspecialchars($advertisement['fuel']);?></p>
+                            <p><strong>Couleur :</strong> <?php echo htmlspecialchars($advertisement['color']);?></p>
+                            <p><strong>Année de fabrication :</strong> <?php echo htmlspecialchars($advertisement['annee_de_fabrication']);?></p>
+                            <p><strong>Mise en circulation :</strong> <?php echo htmlspecialchars($advertisement['mise_en_circulation']);?></p>
+                            <p><strong>Kilometrage :</strong> <?php echo htmlspecialchars($advertisement['kilometrage']);?></p>
+                            <p><strong>Finition :</strong> <?php echo htmlspecialchars($advertisement['finition']);?></p>
+                            <p><strong>Version :</strong> <?php echo htmlspecialchars($advertisement['version']);?></p>
+                            <p><strong>Boite de vitesse :</strong> <?php echo htmlspecialchars($advertisement['boite_de_vitesse']);?></p>
+                            <p><strong>Portieres :</strong> <?php echo htmlspecialchars($advertisement['portieres']);?></p>
+                            <p><strong>DIN :</strong> <?php echo htmlspecialchars($advertisement['DIN']);?></p>
+                            <p><strong>Permis :</strong> <?php echo htmlspecialchars($advertisement['permis']);?></p>
+                            <p><strong>Critair :</strong> <?php echo htmlspecialchars($advertisement['critair']);?></p>
+                            <nav>
+                                <p><a href="index.php?controller=annonce&action=edit&ad_id=<?php echo $ad_id;?>">Editer l'annonce</a></p>
+                                <p><a href="index.php?controller=annonce&action=delete&ad_id=<?php echo $ad_id;?>">Supprimer l'annonce</a></p>
+                                <a href="index.php?controller=user&action=dashboard">Retour à votre tableau de bord.</a>
+                            </nav>
+                            <footer>
+                                <p><a href="index.php?controller=auth&action=logout">Se déconnecter</a></p>
+                            </footer>
+                        </section>
+                    </article>
+                </main>
             </body>
             </html>
             <?php

@@ -13,15 +13,15 @@ unset($_SESSION['error_message']);
     <title>Erreur</title>
 </head>
 <body>
-    <header>
-        <h1>Oups !</h1>
+    <header class="container">
+        <h1 class="row col col-12">Oups !</h1>
     </header>
-    <main>
-        <div class="error-container">
+    <main class="container">
+        <section class="error-container row col col-12">
             <p><?php echo htmlspecialchars($userErrorMessage); ?></p>
             <p>Si le problème persiste , contacter l'administrateur du site.</p>
             <a href="home.phtml">Retour à l'accueil</a>
-        </div>
+        </section>
     </main>
 </body>
 </html>

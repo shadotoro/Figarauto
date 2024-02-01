@@ -1,0 +1,32 @@
+.form {
+    max-width: 800px;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    margin: 2rem auto;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+
+    label {
+        font-weight: 600;
+        margin-top: 1rem;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    button[type="submit"],
+    input[type="submit"] {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        margin-top: 1rem;
+        &:hover {
+            background-color: var(--highlight-color);
+        }
+    }
+}

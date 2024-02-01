@@ -1,0 +1,58 @@
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+@mixin for-mobile-only {
+    @media (max-width: $breakpoint-mobile) {
+        @content;
+    }
+}
+
+@mixin for-tablet-only {
+    @media (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin for-desktop-only {
+    @media (min-width: $breakpoint-desktop) {
+        @content;
+    }
+}
+
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+    width: 100%;
+
+    @include for-tablet-portrait-up {
+        max-width: $breakpoint-desktop;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col,
+[class*="col-"] {
+    padding: 0 15px;
+    flex-basis: 100%;
+
+    @include for-tablet-portrait-up {
+        &.col-6 {
+            flex-basis: 50%;
+        }
+    }
+
+    @include for-desktop-up {
+        &.col-4 {
+            flex-basis: 33.3333333333%;
+        }
+        &.col-3 {
+            flex-basis: 25%;
+        }
+    }
+}

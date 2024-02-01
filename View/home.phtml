@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>Accueil</title>
 </head>
 <body class="home-page">
 <?php require 'View/navbar.phtml'; ?>
-    <main>
-        <section class="main-banner custom-carousel">
-            <div class="owl-carousel owl-theme">
+
+    <main class="container">
+        <section class="main-banner custom-carousel row">
+            <div class="owl-carousel owl-theme col-12">
                     <div class="carousel-item">
                         <img class="carousel-image" src="Assets/images/maserati-gran-turismo-1649119_1920.jpg" alt="Maserati gran turismo" width="1920" height="1186">
                     </div>
@@ -32,33 +33,35 @@
                         <img class="carousel-image" src="Assets/images/car-1890494_1920.jpg" alt="Audi" width="1920" height="1186">
                     </div>
             </div>
+        </section>
 
-            <div class="video-and-ads-section">
-                <div class="video-section">
-                    <iframe width="100%" height="100%" src="Assets/images/pexels-tima-miroshnichenko-6873503 (2160p).mp4" frameborder="25" allowfullscreen></iframe>
-                </div>
+        <section class="video-and-ads-section row">
+            <div class="video-section col col-12 col-md-6">
+                <iframe width="100%" height="100%" src="Assets/images/pexels-tima-miroshnichenko-6873503 (2160p).mp4" frameborder="25" allowfullscreen></iframe>
+            </div>
 
-                <div class="latest-ads-section">
-                    <h2>Dernières Annonces</h2>
-                    <ul>
-                        <?php foreach ($latestAds as $ad): ?>
-                            <li>
-                                <h3><?php echo $ad['title']; ?></h3>
-                                <?php
-                                $phrases = explode('.', $ad['description']);
-                                $deuxPremièresPhrases = array_slice($phrases, 0, 2);
-                                $nouvelleDescription = implode('.', $deuxPremièresPhrases);
-                                ?>
-                                <p><?php echo $nouvelleDescription;?></p>
-                                <a href="view_advertisement.phtml?id=<?php echo $ad['id'];?>">Voir plus</a>
-                            </li>
-                        <?php endforeach;?>
-                    </ul>
-                </div>
+            <div class="latest-ads-section col col-12 col-md-6">
+                <h2>Dernières Annonces</h2>
+                <ul>
+                    <?php foreach ($latestAds as $ad): ?>
+                        <li>
+                            <h3><?php echo $ad['title']; ?></h3>
+                            <?php
+                            $phrases = explode('.', $ad['description']);
+                            $deuxPremièresPhrases = array_slice($phrases, 0, 2);
+                            $nouvelleDescription = implode('.', $deuxPremièresPhrases);
+                            ?>
+                            <p><?php echo $nouvelleDescription;?></p>
+                            <a href="view_advertisement.phtml?id=<?php echo $ad['id'];?>">Voir plus</a>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
             </div>
         </section>
     </main>
+
     <?php require 'View/footer.phtml'; ?>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="Assets/JS/owl-carousel-init.js"></script>
