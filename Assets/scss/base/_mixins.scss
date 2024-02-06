@@ -1,26 +1,11 @@
-// mixin générique 
-@mixin media-query($property, $value) {
-    @media only screen and (#{$property}: #{$value}) {
-        @content;
-    }
-}
-// mixin pour point d'arrêt
-@mixin for-phone-only {
-    @media (max-width: 599px) { @content; }
+@mixin transition($properties) {
+    transition: $properties 0.5s;
 }
 
-@mixin for-tablet-portrait-up {
-    @media (min-width: 600px) and (max-width: 899px) { @content; }
+@mixin box-shadow($shadow) {
+    box-shadow: $shadow;
 }
 
-@mixin for-tablet-landscape-up {
-    @media (min-width: 900px) and (max-width: 1199px) { @content; }
-}
-
-@mixin for-desktop-up {
-    @media (min-width: 1200px) { @content; }
-}
-
-@mixin for-big-desktop-up {
-    @media (min-width: 1800px) { @content; }
+@mixin border-radius($radius) {
+    border-radius: $radius;
 }

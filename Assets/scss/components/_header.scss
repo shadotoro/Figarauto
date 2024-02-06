@@ -1,45 +1,42 @@
-.header {
-    background: var(--primary-color);
-    padding: 0.5rem 1rem;
-    position: fixed;
+@import 'variables';
+@import 'mixins';
+
+.figarauto-header {
     width: 100%;
-    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: $primary-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $border-color;
+    padding: 5px 30px;
+}
 
-    &__logo {
-        display: flex;
-        align-items: center;
-        img {
-            width: 50px;
-        }
-    }
+.figarauto-header h1 {
+    color: $secondary-color;
+    margin: 0;
+}
 
-    &__nav  {
-        display: none;
-        margin-left: auto;
+.figarauto-logo img {
+    max-height: 20%;
+    width: 60px;
+}
 
-        &__item {
-            display: block;
-            padding: 0.5rem;
-            color: var(--secondary-color);
-            &__hover {
-                background: var(--highlight-color);
-            }
-        }
-    }
+.figarauto-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
 
-    @include media-query('min-width', '768px') {
-        padding: 0.5rem 2rem;
-
-        &__logo img {
-            width: 80px;
-        }
-
-        &__nav {
-            display: flex;
-
-            &__item {
-                padding: 0.5rem 1rem;
-            }
-        }
-    }
+.figarauto-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
 }
