@@ -991,3 +991,16 @@ Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\vi
 [2024-02-06 13:59:26] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
 [2024-02-06 13:59:34] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
 [2024-02-06 13:59:37] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-02-06 14:00:20] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-02-06 14:00:23] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-02-06 14:02:50] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-02-06 14:02:55] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-02-06 14:02:57] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-02-06 14:03:00] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55[2024-02-06 14:03:05] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55[2024-03-03 18:06:26] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-03-03 18:07:05] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-03-03 18:07:17] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-03-03 18:07:18] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-03-03 18:07:35] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55Erreur [2] : Undefined array key "id" dans le fichier C:\wamp64\www\Figarauto\view\home.phtml à la ligne 55[2024-03-03 18:07:36] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
